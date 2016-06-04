@@ -1,0 +1,29 @@
+//
+//  PrefixHeader.pch
+//  Weibo
+//
+//  Created by BinWu on 16/6/3.
+//  Copyright © 2016年 c2012y@qq.com. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+#import "UIImage+Category.h"
+
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+#define WIDTH [UIScreen mainScreen].bounds.size.width
+
+#define HEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+//自定义Log
+#ifdef DEBUG
+#define WLog(...) NSLog(__VA_ARGS__)
+#else
+#define WLog(...)
+#endif
+
+#endif
+#endif /* PrefixHeader_pch */
