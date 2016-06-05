@@ -33,7 +33,6 @@
     webView.delegate = self;
     
     NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=4241570953&redirect_uri=http://itebook.cc"];
-    [webView addObserver:self forKeyPath:@"request" options:nil context:nil];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
 
@@ -78,7 +77,6 @@
     //查找code＝在uslStr中的范围
     NSRange range = [urlStr rangeOfString:@"code="];
     if (range.length) {
-        WLog(@"find %@",urlStr);
         unsigned long locate = range.location + range.length;
         NSString *code = [urlStr substringFromIndex:locate];
         //发送post请求给新浪，通过code换取一个accessToken

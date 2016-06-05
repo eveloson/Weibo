@@ -107,6 +107,8 @@
 		7E0933AD1D03BB8700F4E632 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7E0933B01D03BBB800F4E632 /* NewfeatureViewController.h */,
+				7E0933B11D03BBB800F4E632 /* NewfeatureViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -121,8 +123,6 @@
 		7E0933AF1D03BB9500F4E632 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7E0933B01D03BBB800F4E632 /* NewfeatureViewController.h */,
-				7E0933B11D03BBB800F4E632 /* NewfeatureViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
