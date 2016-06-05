@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TabBarViewController.h"
 #import "NewfeatureViewController.h"
+#import "OAuthViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,15 +18,37 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:kAppKey];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    if () {
-        self.window.rootViewController = [[NewfeatureViewController alloc] init];
-    } else {
-        self.window.rootViewController = [[TabBarViewController alloc] init];
-    }
+    
+//    NSString *key = @"CFBundleVersion";
+//    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSString *lastCode = [defaults stringForKey:key];
+//    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
+//    if ([lastCode isEqualToString:currentVersion]) {
+//        self.window.rootViewController = [[TabBarViewController alloc] init];
+//        
+//    } else {
+//        self.window.rootViewController = [[NewfeatureViewController alloc] init];
+//        [defaults setObject:currentVersion forKey:key];
+//        [defaults synchronize];
+//    }
+    self.window.rootViewController = [[OAuthViewController alloc] init];
     
     [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+#pragma mark -weiboSDK
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
