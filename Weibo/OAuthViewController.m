@@ -8,6 +8,9 @@
 
 #import "OAuthViewController.h"
 #import <AFNetworking.h>
+#import "Account.h"
+#import "TabBarViewController.h"
+#import "NewfeatureViewController.h"
 @interface OAuthViewController () <WeiboSDKDelegate,UIWebViewDelegate>
 @end
 
@@ -32,7 +35,6 @@
     NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=4241570953&redirect_uri=http://itebook.cc"];
     [webView addObserver:self forKeyPath:@"request" options:nil context:nil];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
     [webView loadRequest:request];
 
 }
@@ -79,10 +81,79 @@
         WLog(@"find %@",urlStr);
         unsigned long locate = range.location + range.length;
         NSString *code = [urlStr substringFromIndex:locate];
-        
+        //发送post请求给新浪，通过code换取一个accessToken
+        [self accessTokenWithCode:code];
     }
     return YES;
 }
+/**
+ *  client_id	true	string	申请应用时分配的AppKey。
+ client_secret	true	string	申请应用时分配的AppSecret。
+ grant_type	true	string	请求的类型，填写authorization_code
+ 
+ grant_type为authorization_code时
+ code	true	string	调用authorize获得的code值。
+ redirect_uri	true	string	回调地址，需需与注册应用里的回调地址一致。
 
+ *
+ *  @param code <#code description#>
+ */
+- (void)accessTokenWithCode:(NSString *)code{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    mgr.responseSerializer = [AFJSONResponseSerializer serializer];
+    //2.封装请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"client_id"]     = @"4241570953";
+    params[@"client_secret"] = @"fa6b26dcd8caf8eb4f2b057b3fb338dd";
+    params[@"grant_type"]    = @"authorization_code";
+    params[@"code"]          = code;
+    params[@"redirect_uri"]  = @"http://itebook.cc";
+    //3.发送请求
+    [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
+    //4.将字典转为模型
+        Account *account = [Account accountWithDict:responseObject];
+    
+    //5.存储模型数据
+        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+        NSString *file = [doc stringByAppendingPathComponent:@"account.data"];
+        [NSKeyedArchiver archiveRootObject:account toFile:file];
+    //6.新特性／去首页
+        //取出沙盒中存储的上次软件版本
+        NSString *key = @"CFBundleVersion";
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *lastCode = [defaults stringForKey:key];
+        //获取当前软件的版本号
+        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
+        if ([lastCode isEqualToString:currentVersion]) {
+            self.view.window.rootViewController = [[TabBarViewController alloc] init];
+        } else {
+            self.view.window.rootViewController = [[NewfeatureViewController alloc] init];
+            [defaults setObject:currentVersion forKey:key];
+            [defaults synchronize];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        WLog(@"请求失败:%@",error);
+    }];
+
+}
+//2016-06-05 19:54:01.151 Weibo[50776:2015530] 请求成功:{
+//    "access_token" = "2.00htvFTBj3MDdEdb34816d9eR6SlpC";
+//    "expires_in" = 157679999;
+//    "remind_in" = 157679999;
+//    uid = 1346060777;
+//}
+//返回数据
+//{
+//    "access_token": "ACCESS_TOKEN",  能让某个应用访问某个用户的数据
+//    "expires_in": 1234,
+//    "remind_in":"798114",
+//    "uid":"12341234"
+//}
+//
+//返回值字段	字段类型	字段说明
+//access_token	string	用户授权的唯一票据，用于调用微博的开放接口，同时也是第三方应用验证微博用户登录的唯一票据，第三方应用应该用该票据和自己应用内的用户建立唯一影射关系，来识别登录状态，不能使用本返回值里的UID字段来做登录识别。
+//expires_in	string	access_token的生命周期，单位是秒数。
+//remind_in	string	access_token的生命周期（该参数即将废弃，开发者请使用expires_in）。
+//uid	string	授权用户的UID，本字段只是为了方便开发者，减少一次user/show接口调用而返回的，第三方应用不能用此字段作为用户登录状态的识别，只有access_token才是用户授权的唯一票据。
 
 @end

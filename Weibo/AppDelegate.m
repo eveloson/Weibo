@@ -10,6 +10,7 @@
 #import "TabBarViewController.h"
 #import "NewfeatureViewController.h"
 #import "OAuthViewController.h"
+#import "Account.h"
 @interface AppDelegate ()
 
 @end
@@ -21,35 +22,40 @@
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kAppKey];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-//    NSString *key = @"CFBundleVersion";
-//    
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSString *lastCode = [defaults stringForKey:key];
-//    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
-//    if ([lastCode isEqualToString:currentVersion]) {
-//        self.window.rootViewController = [[TabBarViewController alloc] init];
-//        
-//    } else {
-//        self.window.rootViewController = [[NewfeatureViewController alloc] init];
-//        [defaults setObject:currentVersion forKey:key];
-//        [defaults synchronize];
-//    }
-    self.window.rootViewController = [[OAuthViewController alloc] init];
-    
+    //判断有无账户模型数据
+    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+    NSString *file = [doc stringByAppendingPathComponent:@"account.data"];
+    Account * account = [NSKeyedUnarchiver unarchiveObjectWithFile:file];
+    if (account) {   //之前登录成功
+        //取出沙盒中存储的上次软件版本
+        NSString *key = @"CFBundleVersion";
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *lastCode = [defaults stringForKey:key];
+        //获取当前软件的版本号
+        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
+        if ([lastCode isEqualToString:currentVersion]) {
+            self.window.rootViewController = [[TabBarViewController alloc] init];
+        } else {
+            self.window.rootViewController = [[NewfeatureViewController alloc] init];
+            [defaults setObject:currentVersion forKey:key];
+            [defaults synchronize];
+        }
+    } else {
+        self.window.rootViewController = [[OAuthViewController alloc] init];
+    }
     [self.window makeKeyAndVisible];
     
     return YES;
 }
 
 #pragma mark -weiboSDK
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
-    return [WeiboSDK handleOpenURL:url delegate:self];
-}
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    return [WeiboSDK handleOpenURL:url delegate:self];
-}
+//- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+//    return [WeiboSDK handleOpenURL:url delegate:self];
+//}
+//
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+//    return [WeiboSDK handleOpenURL:url delegate:self];
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 
