@@ -6,18 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "navigationbar_filter_highlighted@2x-1.png",
+      "filename" : "navigationbar_filter_highlighted@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "navigationbar_filter_highlighted@2x.png",
-      "unassigned" : true,
-      "scale" : "2x"
     }
   ],
   "info" : {

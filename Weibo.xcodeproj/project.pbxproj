@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E0933AB1D03059D00F4E632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E0933AA1D03059D00F4E632 /* Assets.xcassets */; };
+		7E0933B21D03BBB800F4E632 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0933B11D03BBB800F4E632 /* NewfeatureViewController.m */; };
 		7E34A3C91D02C8D400195101 /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E34A3C81D02C8D400195101 /* SearchBar.m */; };
 		7E34A3CC1D02D44300195101 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E34A3CB1D02D44300195101 /* TitleButton.m */; };
+		7E34A3CF1D02F9B100195101 /* MyGroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E34A3CE1D02F9B100195101 /* MyGroupsTableViewController.m */; };
 		7E85F0851D02B8C60060D061 /* UIBarButtonItem+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E85F0841D02B8C60060D061 /* UIBarButtonItem+Category.m */; };
 		7E9BA3A01D013C570038A989 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BA39F1D013C570038A989 /* main.m */; };
 		7E9BA3A31D013C570038A989 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BA3A21D013C570038A989 /* AppDelegate.m */; };
 		7E9BA3A61D013C570038A989 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BA3A51D013C570038A989 /* ViewController.m */; };
-		7E9BA3AB1D013C570038A989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E9BA3AA1D013C570038A989 /* Assets.xcassets */; };
 		7E9BA3AE1D013C570038A989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9BA3AC1D013C570038A989 /* LaunchScreen.storyboard */; };
 		7E9BA3BA1D0144F60038A989 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BA3B91D0144F60038A989 /* TabBarViewController.m */; };
 		7E9BA3BD1D0145630038A989 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BA3BC1D0145630038A989 /* HomeTableViewController.m */; };
@@ -28,10 +30,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E0933AA1D03059D00F4E632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E0933B01D03BBB800F4E632 /* NewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewfeatureViewController.h; sourceTree = "<group>"; };
+		7E0933B11D03BBB800F4E632 /* NewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewfeatureViewController.m; sourceTree = "<group>"; };
 		7E34A3C71D02C8D400195101 /* SearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBar.h; sourceTree = "<group>"; };
 		7E34A3C81D02C8D400195101 /* SearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBar.m; sourceTree = "<group>"; };
 		7E34A3CA1D02D44300195101 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
 		7E34A3CB1D02D44300195101 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
+		7E34A3CD1D02F9B100195101 /* MyGroupsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGroupsTableViewController.h; sourceTree = "<group>"; };
+		7E34A3CE1D02F9B100195101 /* MyGroupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGroupsTableViewController.m; sourceTree = "<group>"; };
 		7E85F0831D02B8C60060D061 /* UIBarButtonItem+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Category.h"; sourceTree = "<group>"; };
 		7E85F0841D02B8C60060D061 /* UIBarButtonItem+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Category.m"; sourceTree = "<group>"; };
 		7E9BA39B1D013C570038A989 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,7 +47,6 @@
 		7E9BA3A21D013C570038A989 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7E9BA3A41D013C570038A989 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7E9BA3A51D013C570038A989 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7E9BA3AA1D013C570038A989 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E9BA3AD1D013C570038A989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E9BA3AF1D013C570038A989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E9BA3B81D0144F60038A989 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
@@ -77,6 +83,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E0933AC1D03BB7800F4E632 /* Newfeature */ = {
+			isa = PBXGroup;
+			children = (
+				7E0933AF1D03BB9500F4E632 /* View */,
+				7E0933AE1D03BB8F00F4E632 /* Model */,
+				7E0933AD1D03BB8700F4E632 /* Controller */,
+			);
+			name = Newfeature;
+			sourceTree = "<group>";
+		};
+		7E0933AD1D03BB8700F4E632 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		7E0933AE1D03BB8F00F4E632 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7E0933AF1D03BB9500F4E632 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7E0933B01D03BBB800F4E632 /* NewfeatureViewController.h */,
+				7E0933B11D03BBB800F4E632 /* NewfeatureViewController.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		7E9BA3921D013C570038A989 = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +147,7 @@
 			children = (
 				7E9BA3AC1D013C570038A989 /* LaunchScreen.storyboard */,
 				7E9BA3AF1D013C570038A989 /* Info.plist */,
-				7E9BA3AA1D013C570038A989 /* Assets.xcassets */,
+				7E0933AA1D03059D00F4E632 /* Assets.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -116,11 +155,12 @@
 		7E9BA3C71D0151BA0038A989 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7E0933AC1D03BB7800F4E632 /* Newfeature */,
 				7EE940731D016127004DC3BC /* Main */,
-				7EE940771D016141004DC3BC /* Discover */,
-				7EE940761D016137004DC3BC /* Message */,
-				7EE940751D016132004DC3BC /* Me */,
 				7EE940741D01612D004DC3BC /* Home */,
+				7EE940761D016137004DC3BC /* Message */,
+				7EE940771D016141004DC3BC /* Discover */,
+				7EE940751D016132004DC3BC /* Me */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -292,6 +332,8 @@
 			children = (
 				7E9BA3BB1D0145630038A989 /* HomeTableViewController.h */,
 				7E9BA3BC1D0145630038A989 /* HomeTableViewController.m */,
+				7E34A3CD1D02F9B100195101 /* MyGroupsTableViewController.h */,
+				7E34A3CE1D02F9B100195101 /* MyGroupsTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -385,8 +427,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E0933AB1D03059D00F4E632 /* Assets.xcassets in Resources */,
 				7E9BA3AE1D013C570038A989 /* LaunchScreen.storyboard in Resources */,
-				7E9BA3AB1D013C570038A989 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,9 +447,11 @@
 				7E9BA3C61D0145A90038A989 /* MeTableViewController.m in Sources */,
 				7E34A3CC1D02D44300195101 /* TitleButton.m in Sources */,
 				7E85F0851D02B8C60060D061 /* UIBarButtonItem+Category.m in Sources */,
+				7E0933B21D03BBB800F4E632 /* NewfeatureViewController.m in Sources */,
 				7E9BA3A61D013C570038A989 /* ViewController.m in Sources */,
 				7E9BA3A31D013C570038A989 /* AppDelegate.m in Sources */,
 				7EAD4BE71D01761000BA00E8 /* TabBarButton.m in Sources */,
+				7E34A3CF1D02F9B100195101 /* MyGroupsTableViewController.m in Sources */,
 				7E9BA3A01D013C570038A989 /* main.m in Sources */,
 				7EAD4BEB1D0196F500BA00E8 /* UIImage+Category.m in Sources */,
 				7E9BA3C01D0145720038A989 /* MessageTableViewController.m in Sources */,
