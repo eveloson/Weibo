@@ -11,6 +11,7 @@
 @interface Account : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *access_token;
+@property (nonatomic, strong) NSDate *expireTime;
 @property (nonatomic, assign) long long expires_in;
 @property (nonatomic, assign) long long remind_in;
 @property (nonatomic, assign) long long uid;

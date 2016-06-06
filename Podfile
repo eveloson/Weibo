@@ -6,6 +6,7 @@ target 'Weibo' do
   # use_frameworks!
 
   # Pods for Weibo
+pod 'MBProgressHUD', '~> 0.9.2'
 pod "WeiboSDK", :git => "https://github.com/sinaweibosdk/weibo_ios_sdk.git" 
 pod 'AFNetworking', '~> 3.1.0'
 end

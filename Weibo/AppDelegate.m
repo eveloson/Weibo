@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "TabBarViewController.h"
-#import "NewfeatureViewController.h"
 #import "OAuthViewController.h"
 #import "Account.h"
+#import "WeiboTool.h"
+#import "AccountTool.h"
 @interface AppDelegate ()
 
 @end
@@ -19,32 +19,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kAppKey];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window makeKeyAndVisible];
+
     //判断有无账户模型数据
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
-    NSString *file = [doc stringByAppendingPathComponent:@"account.data"];
-    Account * account = [NSKeyedUnarchiver unarchiveObjectWithFile:file];
+    Account * account = [AccountTool account];
     if (account) {   //之前登录成功
-        //取出沙盒中存储的上次软件版本
-        NSString *key = @"CFBundleVersion";
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *lastCode = [defaults stringForKey:key];
-        //获取当前软件的版本号
-        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
-        if ([lastCode isEqualToString:currentVersion]) {
-            self.window.rootViewController = [[TabBarViewController alloc] init];
-        } else {
-            self.window.rootViewController = [[NewfeatureViewController alloc] init];
-            [defaults setObject:currentVersion forKey:key];
-            [defaults synchronize];
-        }
+        [WeiboTool chooseRootController];
     } else {
         self.window.rootViewController = [[OAuthViewController alloc] init];
     }
-    [self.window makeKeyAndVisible];
-    
+
     return YES;
 }
 

@@ -15,6 +15,8 @@
 		7E34A3CF1D02F9B100195101 /* MyGroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E34A3CE1D02F9B100195101 /* MyGroupsTableViewController.m */; };
 		7E5F1C691D03FDA7000C655C /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5F1C681D03FDA7000C655C /* OAuthViewController.m */; };
 		7E6B27611D044C4A00F1C1A4 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6B27601D044C4A00F1C1A4 /* Account.m */; };
+		7E6B27641D05391100F1C1A4 /* WeiboTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6B27631D05391100F1C1A4 /* WeiboTool.m */; };
+		7E6B27691D053C3200F1C1A4 /* AccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6B27681D053C3200F1C1A4 /* AccountTool.m */; };
 		7E85F0851D02B8C60060D061 /* UIBarButtonItem+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E85F0841D02B8C60060D061 /* UIBarButtonItem+Category.m */; };
 		7E9BA3A01D013C570038A989 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BA39F1D013C570038A989 /* main.m */; };
 		7E9BA3A31D013C570038A989 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BA3A21D013C570038A989 /* AppDelegate.m */; };
@@ -48,6 +50,10 @@
 		7E5F1C681D03FDA7000C655C /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 		7E6B275F1D044C4A00F1C1A4 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		7E6B27601D044C4A00F1C1A4 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		7E6B27621D05391100F1C1A4 /* WeiboTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTool.h; sourceTree = "<group>"; };
+		7E6B27631D05391100F1C1A4 /* WeiboTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboTool.m; sourceTree = "<group>"; };
+		7E6B27671D053C3200F1C1A4 /* AccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTool.h; sourceTree = "<group>"; };
+		7E6B27681D053C3200F1C1A4 /* AccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTool.m; sourceTree = "<group>"; };
 		7E85F0831D02B8C60060D061 /* UIBarButtonItem+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Category.h"; sourceTree = "<group>"; };
 		7E85F0841D02B8C60060D061 /* UIBarButtonItem+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Category.m"; sourceTree = "<group>"; };
 		7E9BA39B1D013C570038A989 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +136,7 @@
 		7E5F1C651D03FD80000C655C /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
+				7E6B27651D053BAF00F1C1A4 /* Tool */,
 				7E6B275E1D044C2200F1C1A4 /* Model */,
 				7E5F1C661D03FD8F000C655C /* Controller */,
 			);
@@ -152,6 +159,24 @@
 				7E6B27601D044C4A00F1C1A4 /* Account.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		7E6B27651D053BAF00F1C1A4 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				7E6B27671D053C3200F1C1A4 /* AccountTool.h */,
+				7E6B27681D053C3200F1C1A4 /* AccountTool.m */,
+			);
+			name = Tool;
+			sourceTree = "<group>";
+		};
+		7E6B27661D053C1700F1C1A4 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				7E6B27621D05391100F1C1A4 /* WeiboTool.h */,
+				7E6B27631D05391100F1C1A4 /* WeiboTool.m */,
+			);
+			name = Tool;
 			sourceTree = "<group>";
 		};
 		7E9BA3921D013C570038A989 = {
@@ -270,6 +295,7 @@
 		7EE940781D01614A004DC3BC /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				7E6B27661D053C1700F1C1A4 /* Tool */,
 				7EAD4BE81D0196E000BA00E8 /* Category */,
 				7E9BA39F1D013C570038A989 /* main.m */,
 				7E9BA3A11D013C570038A989 /* AppDelegate.h */,
@@ -549,7 +575,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EE9408D1D0162D7004DC3BC /* TabBar.m in Sources */,
+				7E6B27641D05391100F1C1A4 /* WeiboTool.m in Sources */,
 				7E9BA3BA1D0144F60038A989 /* TabBarViewController.m in Sources */,
+				7E6B27691D053C3200F1C1A4 /* AccountTool.m in Sources */,
 				7E9BA3BD1D0145630038A989 /* HomeTableViewController.m in Sources */,
 				7EAD4BF11D029F3B00BA00E8 /* NavigationController.m in Sources */,
 				7E9BA3C31D0145910038A989 /* DiscoverTableViewController.m in Sources */,

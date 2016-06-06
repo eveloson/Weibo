@@ -9,8 +9,8 @@
 #import "OAuthViewController.h"
 #import <AFNetworking.h>
 #import "Account.h"
-#import "TabBarViewController.h"
-#import "NewfeatureViewController.h"
+#import "WeiboTool.h"
+#import "AccountTool.h"
 @interface OAuthViewController () <WeiboSDKDelegate,UIWebViewDelegate>
 @end
 
@@ -112,27 +112,22 @@
         Account *account = [Account accountWithDict:responseObject];
     
     //5.存储模型数据
-        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
-        NSString *file = [doc stringByAppendingPathComponent:@"account.data"];
-        [NSKeyedArchiver archiveRootObject:account toFile:file];
+        [AccountTool saveAccount:account];
     //6.新特性／去首页
-        //取出沙盒中存储的上次软件版本
-        NSString *key = @"CFBundleVersion";
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *lastCode = [defaults stringForKey:key];
-        //获取当前软件的版本号
-        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
-        if ([lastCode isEqualToString:currentVersion]) {
-            self.view.window.rootViewController = [[TabBarViewController alloc] init];
-        } else {
-            self.view.window.rootViewController = [[NewfeatureViewController alloc] init];
-            [defaults setObject:currentVersion forKey:key];
-            [defaults synchronize];
-        }
+        [WeiboTool chooseRootController];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         WLog(@"请求失败:%@",error);
     }];
 
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    
 }
 //2016-06-05 19:54:01.151 Weibo[50776:2015530] 请求成功:{
 //    "access_token" = "2.00htvFTBj3MDdEdb34816d9eR6SlpC";
