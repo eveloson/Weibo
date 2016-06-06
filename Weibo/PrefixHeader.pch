@@ -10,6 +10,8 @@
 #define PrefixHeader_pch
 
 #ifdef __OBJC__
+//第三发框架
+#import <AFNetworking.h>
 //微博sdk
 #import <WeiboSDK.h>
 #define kAppKey             @"4241570953"
@@ -19,9 +21,9 @@
 #import "UIImage+Category.h"
 
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
-#define WIDTH [UIScreen mainScreen].bounds.size.width
+#define kWidth [UIScreen mainScreen].bounds.size.width
 
-#define HEIGHT [UIScreen mainScreen].bounds.size.height
+#define kHeight [UIScreen mainScreen].bounds.size.height
 
 #define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 //自定义Log

@@ -10,6 +10,10 @@
 		7414BCC68571003B2504A1F2 /* libPods-Weibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A52BA2578EDC3B7A8D228F /* libPods-Weibo.a */; };
 		7E0933AB1D03059D00F4E632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E0933AA1D03059D00F4E632 /* Assets.xcassets */; };
 		7E0933B21D03BBB800F4E632 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0933B11D03BBB800F4E632 /* NewfeatureViewController.m */; };
+		7E1480BD1D0565770016F826 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1480BC1D0565770016F826 /* Status.m */; };
+		7E1480C01D05677C0016F826 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1480BF1D05677C0016F826 /* User.m */; };
+		7E1480C31D0590A50016F826 /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1480C21D0590A50016F826 /* StatusCell.m */; };
+		7E1480C61D05A6960016F826 /* StatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1480C51D05A6960016F826 /* StatusFrame.m */; };
 		7E34A3C91D02C8D400195101 /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E34A3C81D02C8D400195101 /* SearchBar.m */; };
 		7E34A3CC1D02D44300195101 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E34A3CB1D02D44300195101 /* TitleButton.m */; };
 		7E34A3CF1D02F9B100195101 /* MyGroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E34A3CE1D02F9B100195101 /* MyGroupsTableViewController.m */; };
@@ -18,6 +22,8 @@
 		7E6B27641D05391100F1C1A4 /* WeiboTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6B27631D05391100F1C1A4 /* WeiboTool.m */; };
 		7E6B27691D053C3200F1C1A4 /* AccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6B27681D053C3200F1C1A4 /* AccountTool.m */; };
 		7E85F0851D02B8C60060D061 /* UIBarButtonItem+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E85F0841D02B8C60060D061 /* UIBarButtonItem+Category.m */; };
+		7E8C59691D054904009169FB /* MBProgressHUD+WB.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8C59681D054904009169FB /* MBProgressHUD+WB.m */; };
+		7E8C596B1D0549A9009169FB /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E8C596A1D0549A9009169FB /* MBProgressHUD.bundle */; };
 		7E9BA3A01D013C570038A989 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BA39F1D013C570038A989 /* main.m */; };
 		7E9BA3A31D013C570038A989 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BA3A21D013C570038A989 /* AppDelegate.m */; };
 		7E9BA3A61D013C570038A989 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9BA3A51D013C570038A989 /* ViewController.m */; };
@@ -40,6 +46,14 @@
 		7E0933AA1D03059D00F4E632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E0933B01D03BBB800F4E632 /* NewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewfeatureViewController.h; sourceTree = "<group>"; };
 		7E0933B11D03BBB800F4E632 /* NewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewfeatureViewController.m; sourceTree = "<group>"; };
+		7E1480BB1D0565770016F826 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
+		7E1480BC1D0565770016F826 /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Status.m; sourceTree = "<group>"; };
+		7E1480BE1D05677C0016F826 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		7E1480BF1D05677C0016F826 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		7E1480C11D0590A50016F826 /* StatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
+		7E1480C21D0590A50016F826 /* StatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
+		7E1480C41D05A6960016F826 /* StatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusFrame.h; sourceTree = "<group>"; };
+		7E1480C51D05A6960016F826 /* StatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusFrame.m; sourceTree = "<group>"; };
 		7E34A3C71D02C8D400195101 /* SearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBar.h; sourceTree = "<group>"; };
 		7E34A3C81D02C8D400195101 /* SearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBar.m; sourceTree = "<group>"; };
 		7E34A3CA1D02D44300195101 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
@@ -56,6 +70,9 @@
 		7E6B27681D053C3200F1C1A4 /* AccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTool.m; sourceTree = "<group>"; };
 		7E85F0831D02B8C60060D061 /* UIBarButtonItem+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Category.h"; sourceTree = "<group>"; };
 		7E85F0841D02B8C60060D061 /* UIBarButtonItem+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Category.m"; sourceTree = "<group>"; };
+		7E8C59671D054904009169FB /* MBProgressHUD+WB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+WB.h"; sourceTree = "<group>"; };
+		7E8C59681D054904009169FB /* MBProgressHUD+WB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+WB.m"; sourceTree = "<group>"; };
+		7E8C596A1D0549A9009169FB /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		7E9BA39B1D013C570038A989 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9BA39F1D013C570038A989 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7E9BA3A11D013C570038A989 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -136,9 +153,9 @@
 		7E5F1C651D03FD80000C655C /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
+				7E5F1C661D03FD8F000C655C /* Controller */,
 				7E6B27651D053BAF00F1C1A4 /* Tool */,
 				7E6B275E1D044C2200F1C1A4 /* Model */,
-				7E5F1C661D03FD8F000C655C /* Controller */,
 			);
 			name = OAuth;
 			sourceTree = "<group>";
@@ -177,6 +194,16 @@
 				7E6B27631D05391100F1C1A4 /* WeiboTool.m */,
 			);
 			name = Tool;
+			sourceTree = "<group>";
+		};
+		7E8C59661D0548F5009169FB /* LIb */ = {
+			isa = PBXGroup;
+			children = (
+				7E8C59671D054904009169FB /* MBProgressHUD+WB.h */,
+				7E8C596A1D0549A9009169FB /* MBProgressHUD.bundle */,
+				7E8C59681D054904009169FB /* MBProgressHUD+WB.m */,
+			);
+			name = LIb;
 			sourceTree = "<group>";
 		};
 		7E9BA3921D013C570038A989 = {
@@ -295,6 +322,7 @@
 		7EE940781D01614A004DC3BC /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				7E8C59661D0548F5009169FB /* LIb */,
 				7E6B27661D053C1700F1C1A4 /* Tool */,
 				7EAD4BE81D0196E000BA00E8 /* Category */,
 				7E9BA39F1D013C570038A989 /* main.m */,
@@ -381,6 +409,12 @@
 		7EE940821D0161B7004DC3BC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7E1480BB1D0565770016F826 /* Status.h */,
+				7E1480BC1D0565770016F826 /* Status.m */,
+				7E1480BE1D05677C0016F826 /* User.h */,
+				7E1480BF1D05677C0016F826 /* User.m */,
+				7E1480C41D05A6960016F826 /* StatusFrame.h */,
+				7E1480C51D05A6960016F826 /* StatusFrame.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -390,6 +424,8 @@
 			children = (
 				7E34A3CA1D02D44300195101 /* TitleButton.h */,
 				7E34A3CB1D02D44300195101 /* TitleButton.m */,
+				7E1480C11D0590A50016F826 /* StatusCell.h */,
+				7E1480C21D0590A50016F826 /* StatusCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -516,6 +552,7 @@
 			files = (
 				7E0933AB1D03059D00F4E632 /* Assets.xcassets in Resources */,
 				7E9BA3AE1D013C570038A989 /* LaunchScreen.storyboard in Resources */,
+				7E8C596B1D0549A9009169FB /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,24 +611,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E1480C01D05677C0016F826 /* User.m in Sources */,
 				7EE9408D1D0162D7004DC3BC /* TabBar.m in Sources */,
 				7E6B27641D05391100F1C1A4 /* WeiboTool.m in Sources */,
 				7E9BA3BA1D0144F60038A989 /* TabBarViewController.m in Sources */,
 				7E6B27691D053C3200F1C1A4 /* AccountTool.m in Sources */,
+				7E1480C31D0590A50016F826 /* StatusCell.m in Sources */,
 				7E9BA3BD1D0145630038A989 /* HomeTableViewController.m in Sources */,
 				7EAD4BF11D029F3B00BA00E8 /* NavigationController.m in Sources */,
 				7E9BA3C31D0145910038A989 /* DiscoverTableViewController.m in Sources */,
+				7E1480BD1D0565770016F826 /* Status.m in Sources */,
 				7E5F1C691D03FDA7000C655C /* OAuthViewController.m in Sources */,
 				7E9BA3C61D0145A90038A989 /* MeTableViewController.m in Sources */,
 				7E34A3CC1D02D44300195101 /* TitleButton.m in Sources */,
 				7E85F0851D02B8C60060D061 /* UIBarButtonItem+Category.m in Sources */,
 				7E0933B21D03BBB800F4E632 /* NewfeatureViewController.m in Sources */,
 				7E9BA3A61D013C570038A989 /* ViewController.m in Sources */,
+				7E1480C61D05A6960016F826 /* StatusFrame.m in Sources */,
 				7E9BA3A31D013C570038A989 /* AppDelegate.m in Sources */,
 				7EAD4BE71D01761000BA00E8 /* TabBarButton.m in Sources */,
 				7E6B27611D044C4A00F1C1A4 /* Account.m in Sources */,
 				7E34A3CF1D02F9B100195101 /* MyGroupsTableViewController.m in Sources */,
 				7E9BA3A01D013C570038A989 /* main.m in Sources */,
+				7E8C59691D054904009169FB /* MBProgressHUD+WB.m in Sources */,
 				7EAD4BEB1D0196F500BA00E8 /* UIImage+Category.m in Sources */,
 				7E9BA3C01D0145720038A989 /* MessageTableViewController.m in Sources */,
 				7EAD4BEE1D01A47500BA00E8 /* BadgeButton.m in Sources */,

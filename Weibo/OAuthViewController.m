@@ -7,23 +7,15 @@
 //
 
 #import "OAuthViewController.h"
-#import <AFNetworking.h>
+
 #import "Account.h"
 #import "WeiboTool.h"
 #import "AccountTool.h"
+#import "MBProgressHUD+WB.h"
 @interface OAuthViewController () <WeiboSDKDelegate,UIWebViewDelegate>
 @end
 
 @implementation OAuthViewController
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-
-}
-
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-//    WLog(@"%@",change);
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -98,7 +90,6 @@
  */
 - (void)accessTokenWithCode:(NSString *)code{
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    mgr.responseSerializer = [AFJSONResponseSerializer serializer];
     //2.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"client_id"]     = @"4241570953";
@@ -115,19 +106,24 @@
         [AccountTool saveAccount:account];
     //6.新特性／去首页
         [WeiboTool chooseRootController];
-        
+    //7.隐藏HUD
+        [MBProgressHUD hideHUD];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        WLog(@"请求失败:%@",error);
+        [MBProgressHUD hideHUD];
     }];
 
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
-    
+    [MBProgressHUD showMessage:@"正在加载中..."];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
-    
+    [MBProgressHUD hideHUD];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    [MBProgressHUD hideHUD];
 }
 //2016-06-05 19:54:01.151 Weibo[50776:2015530] 请求成功:{
 //    "access_token" = "2.00htvFTBj3MDdEdb34816d9eR6SlpC";

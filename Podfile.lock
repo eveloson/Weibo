@@ -14,10 +14,18 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - MBProgressHUD (0.9.2)
+  - MJExtension (3.0.10)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
   - WeiboSDK (3.1.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - MBProgressHUD (~> 0.9.2)
+  - MJExtension (~> 3.0.10)
+  - SDWebImage (~> 3.7.6)
   - WeiboSDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
 
 EXTERNAL SOURCES:
@@ -31,8 +39,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   WeiboSDK: bceab625ec59b7039ba721cc4ba9f5868804f63e
 
-PODFILE CHECKSUM: bb83fc7c0c85f58f10f157dc6bbacf7de44cd546
+PODFILE CHECKSUM: a22abf3968bcf9b8ff4866d7a2b3d78038494211
 
 COCOAPODS: 1.0.0

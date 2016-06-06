@@ -9,7 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MJExtension.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Weibo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8A8C542287A04FFE21F59804D82FAC49</key>
+		<key>8FABA42EC5CD52163C6E8C0067521C54</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>933B8B6AFC6B3E2CE2144D327C0F48B9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
