@@ -7,6 +7,17 @@
 //  一个cell对应一个StatusFrame对象
 
 #import <Foundation/Foundation.h>
+//昵称字体
+#define kStatusNameFont [UIFont systemFontOfSize:15]
+//时间字体
+#define kStatusTimeFont [UIFont systemFontOfSize:11]
+
+//来源字体
+#define kStatusSourceFont kStatusTimeFont
+
+//正文字体
+#define kStatusContentFont [UIFont systemFontOfSize:15]
+
 @class Status;
 @interface StatusFrame : NSObject
 @property (nonatomic, strong) Status *status;

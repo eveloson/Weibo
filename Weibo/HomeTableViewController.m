@@ -13,13 +13,15 @@
 #import "AccountTool.h"
 #import "Status.h"
 #import "User.h"
+#import "StatusFrame.h"
+#import "StatusCell.h"
 #import <UIImageView+WebCache.h>
 #import <MJExtension.h>
 
 #define TitleButtonDownTag -1
 #define TitleButtonUpTag 1
 @interface HomeTableViewController ()
-@property (nonatomic, strong) NSArray *statuses;
+@property (nonatomic, strong) NSArray *statusFrames;
 @end
 
 @implementation HomeTableViewController
@@ -51,7 +53,17 @@
 //        }
 //        self.statuses = statusArray;
         //2.将字典数组转换为模型数组
-        self.statuses = [Status objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *statusArray = [Status objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        //创建frame模型对象
+        NSMutableArray *statusFrameArray = [NSMutableArray array];
+        for (Status *status in statusArray) {
+            StatusFrame *statusFrame = [[StatusFrame alloc] init];
+            //传递模型数据
+            statusFrame.status = status;
+            [statusFrameArray addObject:statusFrame];
+        }
+        self.statusFrames = statusFrameArray;
+        
         //刷新表格
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -94,28 +106,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return self.statuses.count;
+    return self.statusFrames.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    
-    Status *status = self.statuses[indexPath.row];
-    User *user = status.user;
-    cell.textLabel.text = status.text;
-    cell.detailTextLabel.text = user.name;
-    [cell.imageView setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"tabbar_profile"]];
+    StatusCell *cell = [StatusCell cellWithTableView:tableView];
+    cell.statusFrame = self.statusFrames[indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Status *status = self.statuses[indexPath.row];
-    return 100 ;
+    StatusFrame *statusFrame = self.statusFrames[indexPath.row];
+    WLog(@"%f",statusFrame.cellHeight);
+    return statusFrame.cellHeight;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIViewController *vc = [[UIViewController alloc] init];

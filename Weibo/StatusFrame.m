@@ -12,13 +12,7 @@
 //cell 边框宽度
 #define kStatusCellTopMargin 5
 #define kStatusCellLeftMargin 5
-//昵称字体
-#define kStatusNameFont [UIFont systemFontOfSize:15]
-//时间字体
-#define kStatusTimeFont [UIFont systemFontOfSize:11]
 
-//来源字体
-#define kStatusSourceFont kStatusTimeFont
 
 @implementation StatusFrame
 /**
@@ -43,7 +37,7 @@
     CGSize nameLabelSize = [status.user.name sizeWithFont:kStatusNameFont];
     _nameLabelF = (CGRect){nameLabelX,nameLabelY,nameLabelSize};
     //4.会员图标
-    if (status.user.vip) {
+    if (status.user.isVip) {
         CGFloat vipViewW = 14;
         CGFloat vipViewH = nameLabelSize.height;
         CGFloat vipViewX = CGRectGetMaxX(_nameLabelF) + 2;
@@ -54,13 +48,24 @@
     CGFloat timeLabelX = nameLabelX;
     CGFloat timeLabelY = CGRectGetMaxY(_nameLabelF) + 3;
     CGSize timeLabelSize = [status.created_at sizeWithFont:kStatusTimeFont];
-    _nameLabelF = (CGRect){timeLabelX,timeLabelY,timeLabelSize};
+    _timeLabelF = (CGRect){timeLabelX,timeLabelY,timeLabelSize};
     //6.来源
     CGFloat sourceLabelX = CGRectGetMaxX(_timeLabelF) + kStatusCellLeftMargin;
-    CGFloat sourceLabelY = CGRectGetMaxY(_nameLabelF) + 3;
-    CGSize sourceLabelSize = [status.created_at sizeWithFont:kStatusSourceFont];
-    _nameLabelF = (CGRect){timeLabelX,timeLabelY,timeLabelSize};
-    
+    CGFloat sourceLabelY = timeLabelY;
+    CGSize sourceLabelSize = [status.source sizeWithFont:kStatusSourceFont];
+    _sourceLabelF = (CGRect){sourceLabelX,sourceLabelY,sourceLabelSize};
+    //7.微博正文内容
+    CGFloat contentLabelX = iconViewX;
+    CGFloat contentLabelY = CGRectGetMaxY(_iconViewF) + 5;
+    CGFloat contentLabelMaxW = topViewW - 2 * kStatusCellLeftMargin;
+    CGSize contentLabelSize = [status.text sizeWithFont:kStatusContentFont constrainedToSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)];
+    _contentLabelF = (CGRect){contentLabelX,contentLabelY,contentLabelSize};
+    //计算topView的高度
+    CGFloat topViewH = CGRectGetMaxY(_contentLabelF) + kStatusCellTopMargin;
+    _topViewF = CGRectMake(topViewX, topViewY, topViewW, topViewH);
+    WLog(@"topViewH=%f",topViewH);
+    //计算cell的高度
+    _cellHeight = topViewH;
 
 }
 @end

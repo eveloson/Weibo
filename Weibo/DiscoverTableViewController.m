@@ -18,7 +18,7 @@
     [super viewDidLoad];
 #warning searBar左边文字与图片重叠
     SearchBar *searBar = [SearchBar searchBar];
-    searBar.frame = CGRectMake(0, 0, WIDTH - 20, 30);
+    searBar.frame = CGRectMake(0, 0, kWidth - 20, 30);
     searBar.placeholder = @"search";
     self.navigationItem.titleView = searBar;
 }
