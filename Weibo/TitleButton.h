@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#define kTitleButtonImageW 25
 
 @interface TitleButton : UIButton
 

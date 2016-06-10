@@ -18,10 +18,11 @@
 #import <UIImageView+WebCache.h>
 #import <MJExtension.h>
 
-#define TitleButtonDownTag -1
-#define TitleButtonUpTag 1
-@interface HomeTableViewController ()
-@property (nonatomic, strong) NSArray *statusFrames;
+#define kTitleButtonDownTag -1
+#define kTitleButtonUpTag 1
+#define kTitleButtonFont [UIFont systemFontOfSize:17]
+@interface HomeTableViewController () <UITableViewDelegate>
+@property (nonatomic, strong) NSMutableArray *statusFrames;
 @end
 
 @implementation HomeTableViewController
@@ -34,15 +35,28 @@
     //2. 加载微博数据
     [self setupStatusData];
     
-    self.tableView.backgroundColor = [UIColor grayColor];
-    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, kStatusCellTopMargin, 0);
 }
 - (void)setupStatusData{
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     //2.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    NSLog(@"%@", [AccountTool account].access_token);
     params[@"access_token"]     = [AccountTool account].access_token;
     params[@"count"] = @100;
+    
+    //转发～
+//    NSMutableDictionary *repost = [NSMutableDictionary dictionary];
+//    repost[@"access_token"] = [AccountTool account].access_token;
+//    repost[@"id"] = @3984436494087209;
+//    repost[@"status"] = @"autoRepost";
+//    repost[@"is_comment"] = @2;
+//    [mgr POST:@"https://api.weibo.com/2/statuses/repost.json" parameters:repost progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        WLog(@"%@",responseObject);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        WLog(@"%@",error);
+//    }];
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             //取出所有的微博数据
 //        NSArray *dictArray = responseObject[@"statuses"];
@@ -53,7 +67,8 @@
 //        }
 //        self.statuses = statusArray;
         //2.将字典数组转换为模型数组
-        NSArray *statusArray = [Status objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *statusArray = [Status mj_objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        WLog(@"%@",responseObject[@"statuses"]);
         //创建frame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
         for (Status *status in statusArray) {
@@ -78,22 +93,28 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_icon_radar"highIcon:@"navigationbar_icon_rader_highlighted" target:self action:@selector(raderItemClick)];
     //中间按钮
     TitleButton *titleButton = [TitleButton titleButton];
-    titleButton.tag = TitleButtonDownTag;
+    NSString *titleButtonTitle = @"薛定谔的博主";
+    titleButton.tag = kTitleButtonDownTag;
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateFocused];
-    [titleButton setTitle:@"行尸走心" forState:UIControlStateNormal];
+    [titleButton setTitle:titleButtonTitle forState:UIControlStateNormal];
     [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    titleButton.frame = CGRectMake(0, 0, 100, 35);
+    CGSize titleButtonSize = [titleButtonTitle sizeWithFont:kTitleButtonFont];
+    titleButtonSize.width += kTitleButtonImageW + 15;
+    titleButtonSize.height += 15;
+    titleButton.frame = (CGRect){0,0,titleButtonSize};
     self.navigationItem.titleView = titleButton;
+    //tableview背景
+    self.tableView.backgroundColor = RGB(239, 239, 239);
 }
 
 - (void)titleButtonClick:(TitleButton *)titleButton{
-    if (titleButton.tag == TitleButtonUpTag) {
+    if (titleButton.tag == kTitleButtonUpTag) {
         [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-        titleButton.tag = TitleButtonDownTag;
+        titleButton.tag = kTitleButtonDownTag;
     } else {
         [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
-        titleButton.tag = TitleButtonUpTag;
+        titleButton.tag = kTitleButtonUpTag;
     }
 }
 
@@ -117,7 +138,6 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     StatusFrame *statusFrame = self.statusFrames[indexPath.row];
-    WLog(@"%f",statusFrame.cellHeight);
     return statusFrame.cellHeight;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

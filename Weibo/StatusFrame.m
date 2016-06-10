@@ -9,9 +9,6 @@
 #import "StatusFrame.h"
 #import "Status.h"
 #import "User.h"
-//cell 边框宽度
-#define kStatusCellTopMargin 5
-#define kStatusCellLeftMargin 5
 
 
 @implementation StatusFrame
@@ -24,10 +21,11 @@
     CGFloat cellW = kWidth;
     //1.topView
     CGFloat topViewW = cellW;
+    CGFloat topViewH = 0;
     CGFloat topViewX = 0;
     CGFloat topViewY = 0;
     //2.头像
-    CGFloat iconViewWH = 35;
+    CGFloat iconViewWH = 42;
     CGFloat iconViewX = kStatusCellLeftMargin;
     CGFloat iconViewY = kStatusCellTopMargin;
     _iconViewF = CGRectMake(iconViewX, iconViewY, iconViewWH, iconViewWH);
@@ -37,7 +35,7 @@
     CGSize nameLabelSize = [status.user.name sizeWithFont:kStatusNameFont];
     _nameLabelF = (CGRect){nameLabelX,nameLabelY,nameLabelSize};
     //4.会员图标
-    if (status.user.isVip) {
+    if (status.user.mbrank) {
         CGFloat vipViewW = 14;
         CGFloat vipViewH = nameLabelSize.height;
         CGFloat vipViewX = CGRectGetMaxX(_nameLabelF) + 2;
@@ -60,12 +58,69 @@
     CGFloat contentLabelMaxW = topViewW - 2 * kStatusCellLeftMargin;
     CGSize contentLabelSize = [status.text sizeWithFont:kStatusContentFont constrainedToSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)];
     _contentLabelF = (CGRect){contentLabelX,contentLabelY,contentLabelSize};
-    //计算topView的高度
-    CGFloat topViewH = CGRectGetMaxY(_contentLabelF) + kStatusCellTopMargin;
     _topViewF = CGRectMake(topViewX, topViewY, topViewW, topViewH);
-    WLog(@"topViewH=%f",topViewH);
-    //计算cell的高度
-    _cellHeight = topViewH;
+    //8.配图
+    if (status.thumbnail_pic) {
+        CGFloat photoViewWH = 100;
+        CGFloat photoViewX = contentLabelX;
+        CGFloat photoViewY = CGRectGetMaxY(_contentLabelF) + kStatusCellLeftMargin;
+        _photoViewF = CGRectMake(photoViewX, photoViewY, photoViewWH, photoViewWH);
+    }
+    //9.被转发微博
+    if (status.retweeted_status) {
+        CGFloat retweetViewW = topViewW;
+        CGFloat retweetViewH = kStatusCellTopMargin;
+        CGFloat retweetViewX = 0;
+        CGFloat retweetViewY = CGRectGetMaxY(_contentLabelF) + kStatusCellTopMargin;
+        //10.被转发微博作者昵称
+        CGFloat retweetNameLabelX = kStatusCellLeftMargin;
+        CGFloat retweetNameLabelY = kStatusCellTopMargin;
+        NSString *name = [NSString stringWithFormat:@"@%@",status.retweeted_status.user.name];
+        CGSize  retweetNameLabelSize = [name sizeWithFont:kRetweetStatusNameFont];
+        _retweetNameLabelF = (CGRect){retweetNameLabelX,retweetNameLabelY,retweetNameLabelSize};
+        //11.被转发微博的正文
+        CGFloat retweetContentLabelX = kStatusCellLeftMargin;
+        CGFloat retweetContentLabelY = CGRectGetMaxY(_retweetNameLabelF) + kStatusCellTopMargin;
+        CGFloat retweetContentLabelMaxW = retweetViewW - 2 * kStatusCellLeftMargin;
+        CGSize  retweetContentLabelSize = [status.retweeted_status.text sizeWithFont:kRetweetStatusContentFont constrainedToSize:CGSizeMake(retweetContentLabelMaxW, MAXFLOAT)];
+        _retweetContentLabelF = (CGRect){retweetContentLabelX,retweetContentLabelY,retweetContentLabelSize};
+        //12.被转发微博的配图
+        if (status.retweeted_status.thumbnail_pic) {
+            CGFloat retweetPhotoViewWH = 50;
+            CGFloat retweetPhotoViewX = retweetContentLabelX;
+            CGFloat retweetPhotoViewY = CGRectGetMaxY(_retweetContentLabelF) + kStatusCellTopMargin;
+            _retweetPhotoViewF = CGRectMake(retweetPhotoViewX, retweetPhotoViewY, retweetPhotoViewWH, retweetPhotoViewWH);
+            retweetViewH += CGRectGetMaxY(_retweetPhotoViewF);
+        } else {
+            retweetViewH += CGRectGetMaxY(_retweetContentLabelF);
+
+        }
+        _retweetViewF = CGRectMake(retweetViewX, retweetViewY, retweetViewW, retweetViewH);
+        topViewH = CGRectGetMaxY(_retweetViewF);
+        
+    } else { //没有转发微博
+        if (status.thumbnail_pic) {
+            topViewH = CGRectGetMaxY(_photoViewF);
+
+        } else {
+            topViewH = CGRectGetMaxY(_contentLabelF);
+
+        }
+        //topView上下间距
+        topViewH += 2 * kStatusCellTopMargin;
+        
+    }
+    
+    _topViewF = CGRectMake(topViewX, topViewY, topViewW, topViewH);
+    //13.工具条的frame
+    CGFloat statusToolbarX = topViewX;
+    CGFloat statusToolbarY = CGRectGetMaxY(_topViewF);
+    CGFloat statusToolbarW = topViewW;
+    CGFloat statusToolbarH = 35;
+    _statusToolbarF = CGRectMake(statusToolbarX, statusToolbarY, statusToolbarW, statusToolbarH);
+    //14.cell的高度
+    _cellHeight = CGRectGetMaxY(_statusToolbarF) + kStatusCellTopMargin;
+
 
 }
 @end

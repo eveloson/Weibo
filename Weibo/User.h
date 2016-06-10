@@ -76,7 +76,8 @@
 @property (nonatomic, copy) NSString *name;
 //用户头像
 @property (nonatomic, copy) NSString *profile_image_url;
-@property (nonatomic, assign, getter = isVip) BOOL vip;
+//会员等级
+@property (nonatomic, assign) int mbrank;
 
 //- (instancetype)initWithDict:(NSDictionary *)dict;
 //+ (instancetype)userWithDict:(NSDictionary *)dict;

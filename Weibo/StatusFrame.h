@@ -8,15 +8,22 @@
 
 #import <Foundation/Foundation.h>
 //昵称字体
-#define kStatusNameFont [UIFont systemFontOfSize:15]
+#define kStatusNameFont [UIFont systemFontOfSize:13]
 //时间字体
-#define kStatusTimeFont [UIFont systemFontOfSize:11]
-
+#define kStatusTimeFont [UIFont systemFontOfSize:10]
 //来源字体
 #define kStatusSourceFont kStatusTimeFont
-
 //正文字体
-#define kStatusContentFont [UIFont systemFontOfSize:15]
+#define kStatusContentFont [UIFont systemFontOfSize:13]
+//被转发微博正文字体
+#define kRetweetStatusContentFont kStatusContentFont
+//被转发作者昵称字体
+#define kRetweetStatusNameFont kStatusNameFont
+//cell 边框宽度
+#define kStatusCellTopMargin 8
+#define kStatusCellLeftMargin 8
+
+
 
 @class Status;
 @interface StatusFrame : NSObject

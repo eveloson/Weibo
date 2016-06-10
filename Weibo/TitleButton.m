@@ -7,7 +7,6 @@
 //
 
 #import "TitleButton.h"
-#define TitleButtonImageW 20
 @implementation TitleButton
 
 + (instancetype)titleButton{
@@ -21,7 +20,8 @@
         self.adjustsImageWhenHighlighted = NO;
         //设置图片居中
         self.imageView.contentMode = UIViewContentModeCenter;
-        //设置文字右对其
+//        self.imageView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+        //设置文字居中
         self.titleLabel.textAlignment = NSTextAlignmentRight;
         [self setBackgroundImage:[UIImage resizableImage:@"navigationbar_filter_background_highlighted"] forState:UIControlStateHighlighted];
         [self setTitleColor:RGB(65, 65, 65) forState:UIControlStateNormal];
@@ -32,9 +32,9 @@
 - (CGRect)imageRectForContentRect:(CGRect)contentRect{
 
     CGFloat imageY = 0;
-    CGFloat imageW = TitleButtonImageW;
+    CGFloat imageW = kTitleButtonImageW;
     CGFloat imageH = contentRect.size.height;
-    CGFloat imageX = contentRect.size.width - imageW;
+    CGFloat imageX = contentRect.size.width - kTitleButtonImageW;
     return CGRectMake(imageX, imageY, imageW, imageH
                       );
 }
@@ -42,7 +42,7 @@
 - (CGRect)titleRectForContentRect:(CGRect)contentRect{
     CGFloat titleY = 0;
     CGFloat titleX = 0;
-    CGFloat titleW = contentRect.size.width - TitleButtonImageW;
+    CGFloat titleW = contentRect.size.width - kTitleButtonImageW;
     CGFloat titleH = contentRect.size.height;
     
     return CGRectMake(titleX, titleY, titleW, titleH
