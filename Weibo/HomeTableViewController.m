@@ -44,7 +44,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     NSLog(@"%@", [AccountTool account].access_token);
     params[@"access_token"]     = [AccountTool account].access_token;
-    params[@"count"] = @100;
+    params[@"count"] = @10;
     
     //转发～
 //    NSMutableDictionary *repost = [NSMutableDictionary dictionary];

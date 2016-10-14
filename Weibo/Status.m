@@ -21,7 +21,7 @@
     
     //2.判断微博发送时间和现在时间的差距
     if (createDate.isToday) {
-        if (createDate.deltaWithNow.hour >= 0 ) {
+        if (createDate.deltaWithNow.hour >= 1 ) {
             return [NSString stringWithFormat:@"%ld小时前",createDate.deltaWithNow.hour];
         } else if (createDate.deltaWithNow.minute >= 1){
             return [NSString stringWithFormat:@"%ld分钟前",createDate.deltaWithNow.minute];

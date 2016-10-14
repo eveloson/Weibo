@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4400D1CE1D2CD5B1009C6159 /* StatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400D1CD1D2CD5B1009C6159 /* StatusToolbar.m */; };
 		7414BCC68571003B2504A1F2 /* libPods-Weibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A52BA2578EDC3B7A8D228F /* libPods-Weibo.a */; };
 		7E0933AB1D03059D00F4E632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E0933AA1D03059D00F4E632 /* Assets.xcassets */; };
 		7E0933B21D03BBB800F4E632 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0933B11D03BBB800F4E632 /* NewfeatureViewController.m */; };
@@ -44,6 +45,8 @@
 /* Begin PBXFileReference section */
 		03A52BA2578EDC3B7A8D228F /* libPods-Weibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2183DCEA3666D1A6A516F13F /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
+		4400D1CC1D2CD5B1009C6159 /* StatusToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusToolbar.h; sourceTree = "<group>"; };
+		4400D1CD1D2CD5B1009C6159 /* StatusToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusToolbar.m; sourceTree = "<group>"; };
 		7E0933AA1D03059D00F4E632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E0933B01D03BBB800F4E632 /* NewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewfeatureViewController.h; sourceTree = "<group>"; };
 		7E0933B11D03BBB800F4E632 /* NewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewfeatureViewController.m; sourceTree = "<group>"; };
@@ -100,7 +103,6 @@
 		7EAD4BED1D01A47500BA00E8 /* BadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeButton.m; sourceTree = "<group>"; };
 		7EAD4BEF1D029F3B00BA00E8 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		7EAD4BF01D029F3B00BA00E8 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
-		7EBCEE201D09583D00D37C64 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "../../../../../../Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework"; sourceTree = "<group>"; };
 		7EBCEE221D09B42400D37C64 /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
 		7EBCEE231D09B42400D37C64 /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
 		7EE9408B1D0162D7004DC3BC /* TabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBar.h; sourceTree = "<group>"; };
@@ -213,7 +215,6 @@
 		7E9BA3921D013C570038A989 = {
 			isa = PBXGroup;
 			children = (
-				7EBCEE201D09583D00D37C64 /* Reveal.framework */,
 				7E9BA39D1D013C570038A989 /* Weibo */,
 				7E9BA39C1D013C570038A989 /* Products */,
 				F1E9B1DE060765D72605ED3B /* Pods */,
@@ -433,6 +434,8 @@
 				7E34A3CB1D02D44300195101 /* TitleButton.m */,
 				7E1480C11D0590A50016F826 /* StatusCell.h */,
 				7E1480C21D0590A50016F826 /* StatusCell.m */,
+				4400D1CC1D2CD5B1009C6159 /* StatusToolbar.h */,
+				4400D1CD1D2CD5B1009C6159 /* StatusToolbar.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -525,7 +528,7 @@
 		7E9BA3931D013C570038A989 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "c2012y@qq.com";
 				TargetAttributes = {
 					7E9BA39A1D013C570038A989 = {
@@ -644,6 +647,7 @@
 				7E8C59691D054904009169FB /* MBProgressHUD+WB.m in Sources */,
 				7EAD4BEB1D0196F500BA00E8 /* UIImage+Category.m in Sources */,
 				7E9BA3C01D0145720038A989 /* MessageTableViewController.m in Sources */,
+				4400D1CE1D2CD5B1009C6159 /* StatusToolbar.m in Sources */,
 				7EAD4BEE1D01A47500BA00E8 /* BadgeButton.m in Sources */,
 				7E34A3C91D02C8D400195101 /* SearchBar.m in Sources */,
 			);
@@ -677,8 +681,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -721,8 +727,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -760,7 +768,7 @@
 				);
 				GCC_PREFIX_HEADER = Weibo/PrefixHeader.pch;
 				INFOPLIST_FILE = Weibo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -816,7 +824,7 @@
 				);
 				GCC_PREFIX_HEADER = Weibo/PrefixHeader.pch;
 				INFOPLIST_FILE = Weibo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

@@ -10,6 +10,7 @@
 #import "Status.h"
 #import "StatusFrame.h"
 #import "User.h"
+#import "StatusToolbar.h"
 #import <UIImageView+WebCache.h>
 #define kStatusNameColor RGB(38, 38, 38)
 #define kStatusNameVipColor RGB(229, 74, 36);
@@ -46,7 +47,7 @@
 //被转发微博配图
 @property (nonatomic, weak) UIImageView *retweetPhotoView;
 //微博工具条
-@property (nonatomic, weak) UIImageView *statusToolbar;
+@property (nonatomic, weak) StatusToolbar *statusToolbar;
 
 @end
 @implementation StatusCell
@@ -171,10 +172,8 @@ static NSString *ID = @"cell";
  *  添加微博的工具条
  */
 - (void)setupStatusToolBar{
-    UIImageView *statusToolbar =  [[UIImageView alloc] init];
+    StatusToolbar *statusToolbar =  [[StatusToolbar alloc] init];
 //    statusToolbar.backgroundColor = [UIColor redColor];
-    statusToolbar.image = [UIImage resizableImage:@"timeline_card_bottom_background"];
-    statusToolbar.highlightedImage = [UIImage resizableImage:@"timeline_card_bottom_background_highlighted"];
     self.statusToolbar = statusToolbar;
     [self.contentView addSubview:statusToolbar];
 }
