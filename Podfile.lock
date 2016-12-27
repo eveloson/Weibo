@@ -16,34 +16,32 @@ PODS:
     - AFNetworking/NSURLSession
   - MBProgressHUD (0.9.2)
   - MJExtension (3.0.10)
+  - MJPhotoBrowser (1.0.2):
+    - SDWebImage
+    - SVProgressHUD
+    - YLGIFImage
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
-  - WeiboSDK (3.1.4)
+  - SVProgressHUD (2.0.3)
+  - YLGIFImage (0.11)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - MBProgressHUD (~> 0.9.2)
   - MJExtension (~> 3.0.10)
+  - MJPhotoBrowser (~> 1.0.2)
   - SDWebImage (~> 3.7.6)
-  - WeiboSDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
-
-EXTERNAL SOURCES:
-  WeiboSDK:
-    :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
-
-CHECKOUT OPTIONS:
-  WeiboSDK:
-    :commit: 024997bef30c81a787425739a32d3575a9264a5d
-    :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
+  MJPhotoBrowser: f55e8490231f44a78ca6455105a1c798a142c95f
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
-  WeiboSDK: bceab625ec59b7039ba721cc4ba9f5868804f63e
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  YLGIFImage: c0ae132fe80e5282b2762a97d14e23ba71a748ae
 
-PODFILE CHECKSUM: a22abf3968bcf9b8ff4866d7a2b3d78038494211
+PODFILE CHECKSUM: bb93a33b268312965c3b37845064e4aad936cf5c
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.1.1

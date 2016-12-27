@@ -23,6 +23,7 @@
 #define kTitleButtonFont [UIFont systemFontOfSize:17]
 @interface HomeTableViewController () <UITableViewDelegate>
 @property (nonatomic, strong) NSMutableArray *statusFrames;
+@property(nonatomic, weak) TitleButton* titleButton;
 @end
 
 @implementation HomeTableViewController
@@ -39,8 +40,8 @@
     //1.设置导航栏内容
     [self setupNavBar];
 
-//    //2. 加载微博数据
-//    [self setupStatusData];
+    //2. 获取用户信息
+    [self setupUserData];
     //取消cell之间的分割线
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 //    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, kStatusCellTopMargin, 0);
@@ -136,7 +137,7 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_icon_radar"highIcon:@"navigationbar_icon_rader_highlighted" target:self action:@selector(raderItemClick)];
     //中间按钮
     TitleButton *titleButton = [TitleButton titleButton];
-    NSString *titleButtonTitle = @"薛定谔的博主";
+    NSString *titleButtonTitle = @"首页";
     titleButton.tag = kTitleButtonDownTag;
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateFocused];
@@ -149,8 +150,24 @@
     self.navigationItem.titleView = titleButton;
     //tableview背景
     self.tableView.backgroundColor = RGB(239, 239, 239);
+    self.titleButton = titleButton;
 }
 
+- (void)setupUserData{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    //2.封装请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    params[@"access_token"]     = [AccountTool account].access_token;
+    params[@"uid"]     = @([AccountTool account].uid);
+
+    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        User *user = [User mj_objectWithKeyValues:responseObject];
+        [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    }];
+
+}
 - (void)titleButtonClick:(TitleButton *)titleButton{
     if (titleButton.tag == kTitleButtonUpTag) {
         [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
