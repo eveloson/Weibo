@@ -9,6 +9,7 @@
 #import "StatusFrame.h"
 #import "Status.h"
 #import "User.h"
+#import "PhotosView.h"
 
 
 @implementation StatusFrame
@@ -60,11 +61,16 @@
     _contentLabelF = (CGRect){contentLabelX,contentLabelY,contentLabelSize};
     _topViewF = CGRectMake(topViewX, topViewY, topViewW, topViewH);
     //8.配图
-    if (status.thumbnail_pic) {
-        CGFloat photoViewWH = 100;
-        CGFloat photoViewX = contentLabelX;
-        CGFloat photoViewY = CGRectGetMaxY(_contentLabelF) + kStatusCellLeftMargin;
-        _photoViewF = CGRectMake(photoViewX, photoViewY, photoViewWH, photoViewWH);
+    if (status.pic_urls.count) {
+        CGSize photosViewSize;
+        CGFloat photosViewX = contentLabelX;
+        CGFloat photosViewY = CGRectGetMaxY(_contentLabelF) + kStatusCellLeftMargin;
+        if (status.pic_urls.count == 1) {
+            photosViewSize = [PhotosView photosViewSizeWithPhoto:status.pic_urls[0]];
+        } else {
+            photosViewSize = [PhotosView photosViewSizeWithPhotosCount:status.pic_urls.count];
+        }
+        _photosViewF = CGRectMake(photosViewX, photosViewY, photosViewSize.width, photosViewSize.height);
     }
     //9.被转发微博
     if (status.retweeted_status) {
@@ -85,11 +91,16 @@
         CGSize  retweetContentLabelSize = [status.retweeted_status.text sizeWithFont:kRetweetStatusContentFont constrainedToSize:CGSizeMake(retweetContentLabelMaxW, MAXFLOAT)];
         _retweetContentLabelF = (CGRect){retweetContentLabelX,retweetContentLabelY,retweetContentLabelSize};
         //12.被转发微博的配图
-        if (status.retweeted_status.thumbnail_pic) {
-            CGFloat retweetPhotoViewWH = 50;
-            CGFloat retweetPhotoViewX = retweetContentLabelX;
-            CGFloat retweetPhotoViewY = CGRectGetMaxY(_retweetContentLabelF) + kStatusCellTopMargin;
-            _retweetPhotoViewF = CGRectMake(retweetPhotoViewX, retweetPhotoViewY, retweetPhotoViewWH, retweetPhotoViewWH);
+        if (status.retweeted_status.pic_urls.count) {
+            CGSize retweetPhotosViewSize;
+            CGFloat retweetPhotosViewX = retweetContentLabelX;
+            CGFloat retweetPhotosViewY = CGRectGetMaxY(_retweetContentLabelF) + kStatusCellTopMargin;
+            if (status.retweeted_status.pic_urls.count == 1) {
+                retweetPhotosViewSize = [PhotosView photosViewSizeWithPhoto:status.retweeted_status.pic_urls[0]];
+            } else {
+                retweetPhotosViewSize = [PhotosView photosViewSizeWithPhotosCount:status.retweeted_status.pic_urls.count];
+            }
+            _retweetPhotoViewF = CGRectMake(retweetPhotosViewX, retweetPhotosViewY, retweetPhotosViewSize.width, retweetPhotosViewSize.height);
             retweetViewH += CGRectGetMaxY(_retweetPhotoViewF);
         } else {
             retweetViewH += CGRectGetMaxY(_retweetContentLabelF);
@@ -99,8 +110,8 @@
         topViewH = CGRectGetMaxY(_retweetViewF);
         
     } else { //没有转发微博
-        if (status.thumbnail_pic) {
-            topViewH = CGRectGetMaxY(_photoViewF);
+        if (status.pic_urls.count) {
+            topViewH = CGRectGetMaxY(_photosViewF);
 
         } else {
             topViewH = CGRectGetMaxY(_contentLabelF);

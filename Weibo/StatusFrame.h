@@ -7,21 +7,7 @@
 //  一个cell对应一个StatusFrame对象
 
 #import <Foundation/Foundation.h>
-//昵称字体
-#define kStatusNameFont [UIFont systemFontOfSize:13]
-//时间字体
-#define kStatusTimeFont [UIFont systemFontOfSize:10]
-//来源字体
-#define kStatusSourceFont kStatusTimeFont
-//正文字体
-#define kStatusContentFont [UIFont systemFontOfSize:13]
-//被转发微博正文字体
-#define kRetweetStatusContentFont kStatusContentFont
-//被转发作者昵称字体
-#define kRetweetStatusNameFont kStatusNameFont
-//cell 边框宽度
-#define kStatusCellTopMargin 8
-#define kStatusCellLeftMargin 8
+
 
 
 
@@ -35,7 +21,7 @@
 //会员图标
 @property (nonatomic, assign, readonly) CGRect vipViewF;
 //配图
-@property (nonatomic, assign, readonly) CGRect photoViewF;
+@property (nonatomic, assign, readonly) CGRect photosViewF;
 //昵称
 @property (nonatomic, assign, readonly) CGRect nameLabelF;
 

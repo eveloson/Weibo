@@ -78,8 +78,12 @@
 @property (nonatomic, assign) int attitudes_count;
 //用户
 @property (nonatomic, strong) User *user;
-//单张配图（小）
-@property (nonatomic, copy) NSString *thumbnail_pic;
+/**
+ *  微博的配图(数组中装模型:IWPhoto)
+ */
+@property (nonatomic, strong) NSArray *pic_urls;
+////单张配图（小）
+//@property (nonatomic, copy) NSString *thumbnail_pic;
 
 //被转发的微博
 @property (nonatomic, strong) Status *retweeted_status;

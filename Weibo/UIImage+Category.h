@@ -44,4 +44,6 @@
  *  @return 拉伸后的图片
  */
 + (UIImage *)resizableImage:(NSString *)name;
++ (UIImage *)resizedImageWithName:(NSString *)name left:(CGFloat)left top:(CGFloat)top;
+
 @end

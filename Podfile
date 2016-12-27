@@ -7,8 +7,9 @@ target 'Weibo' do
 
   # Pods for Weibo
 pod 'MBProgressHUD', '~> 0.9.2'
-pod "WeiboSDK", :git => "https://github.com/sinaweibosdk/weibo_ios_sdk.git" 
+#pod "WeiboSDK", :git => "https://github.com/sinaweibosdk/weibo_ios_sdk.git" 
 pod 'AFNetworking', '~> 3.1.0'
 pod 'SDWebImage', '~> 3.7.6'
 pod 'MJExtension', '~> 3.0.10'
+pod 'MJPhotoBrowser', '~> 1.0.2'
 end

@@ -26,7 +26,6 @@
     [self setupTabBar];
     //初始化所有的子控制器
     [self setupAllChildViewControllers];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -44,6 +43,7 @@
     [self.tabBar addSubview:tab];
     self.tab = tab;
 }
+
 - (void)setupAllChildViewControllers{
     //1. 首页
     HomeTableViewController *home = [[HomeTableViewController alloc] init];
@@ -108,6 +108,7 @@
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view.backgroundColor = [UIColor yellowColor];
     [self presentViewController:vc animated:YES completion:nil];
+    
 }
 /*
 #pragma mark - Navigation

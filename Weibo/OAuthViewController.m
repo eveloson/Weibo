@@ -12,7 +12,7 @@
 #import "WeiboTool.h"
 #import "AccountTool.h"
 #import "MBProgressHUD+WB.h"
-@interface OAuthViewController () <WeiboSDKDelegate,UIWebViewDelegate>
+@interface OAuthViewController () <UIWebViewDelegate>
 @end
 
 @implementation OAuthViewController
@@ -28,35 +28,6 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
 
-}
-- (void)SSOAuthorize{
-    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-    request.redirectURI = kRedirectURI;
-    request.scope = @"all";
-    request.userInfo = @{
-                         @"123":@"asda",
-                         @"231":@"asd"
-                         };
-    
-    [WeiboSDK sendRequest:request];
-
-}
-
-- (void)OAuthorize{
-    WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare]];
-    request.userInfo = @{
-                         @"123":@"456"
-                         };
-    [WeiboSDK sendRequest:request];
-}
-- (WBMessageObject *)messageToShare{
-    WBMessageObject *message = [WBMessageObject message];
-    message.text = @"test";
-    return message;
-}
-#pragma mark webView代理
-- (void)didReceiveWeiboResponse:(WBBaseResponse *)response{
-    WLog(@"%@",response.requestUserInfo);
 }
 
 /**

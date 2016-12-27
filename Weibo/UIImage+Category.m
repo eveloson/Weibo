@@ -120,10 +120,13 @@
 }
 
 + (UIImage *)resizableImage:(NSString *)name{
-    UIImage *normal = [UIImage imageNamed:name];
-    CGFloat w = normal.size.width * 0.5;
-    CGFloat h = normal.size.height * 0.5;
-    return [normal resizableImageWithCapInsets:UIEdgeInsetsMake(h, w, h, w)];
+    return [self resizedImageWithName:name left:0.5 top:0.5];
 }
++ (UIImage *)resizedImageWithName:(NSString *)name left:(CGFloat)left top:(CGFloat)top
+{
+    UIImage *image = [self imageNamed:name];
+    return [image stretchableImageWithLeftCapWidth:image.size.width * left topCapHeight:image.size.height * top];
+}
+
 
 @end
